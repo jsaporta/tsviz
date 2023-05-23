@@ -1,2 +1,3 @@
 # Time Series Forecasting + Visualization
-Run with `bokeh serve --show bokeh-server.py`.
+Build with `docker build -t bokeh-server .`
+Run with `docker run -p 5006:5006 bokeh-server`
