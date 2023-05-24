@@ -3,7 +3,7 @@ version: "2"
 services:
   kafka:
     image: docker.io/bitnami/kafka:3.4
-    container_name: kafka_container
+    container_name: kafka_broker
     ports:
       - "9092:9092"
     volumes:
@@ -12,10 +12,18 @@ services:
       - ALLOW_PLAINTEXT_LISTENER=yes
 
   bokeh-server:
-    build: .
-    container_name: bokeh_container
+    build:
+      context: ./server
+    container_name: bokeh_server
     ports:
       - "5006:5006"
+    depends_on:
+      - kafka
+
+  raw-data:
+    build:
+      context: ./producer
+    container_name: raw_data
     depends_on:
       - kafka
 
