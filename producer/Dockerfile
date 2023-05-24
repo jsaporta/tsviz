@@ -3,4 +3,4 @@ WORKDIR /app
 ADD requirements.txt /app
 RUN pip install --no-cache-dir -r requirements.txt
 ADD raw-data.py /app
-CMD raw-data.py
+CMD python raw-data.py

@@ -5,7 +5,7 @@ import numpy as np
 from statsmodels.tsa.arima_process import arma_generate_sample
 
 # Kafka configuration
-conf = {'bootstrap.servers': 'kafka:9096'}
+conf = {'bootstrap.servers': 'kafka:9092'}
 
 # Create Producer instance
 p = Producer(**conf)
